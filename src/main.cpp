@@ -58,6 +58,7 @@ int main() {
 
       if (s != "") {
         auto j = json::parse(s);
+        //std::cout << j.dump() << std::endl;
 
         string event = j[0].get<string>();
         

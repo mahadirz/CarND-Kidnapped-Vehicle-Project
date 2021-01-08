@@ -60,10 +60,10 @@ class ParticleFilter {
   /**
    * dataAssociation Finds which observations correspond to which landmarks 
    *   (likely by using a nearest-neighbors data association).
-   * @param predicted Vector of predicted landmark observations
+   * @param sensed_landmarks Vector of sensed_landmarks landmark observations
    * @param observations Vector of landmark observations
    */
-  void dataAssociation(std::vector<LandmarkObs> predicted, 
+  void dataAssociation(std::vector<LandmarkObs> sensed_landmarks,
                        std::vector<LandmarkObs>& observations);
   
   /**
@@ -85,19 +85,9 @@ class ParticleFilter {
    */
   void resample();
 
-  /**
-   * Set a particles list of associations, along with the associations'
-   *   calculated world x,y coordinates
-   * This can be a very useful debugging tool to make sure transformations 
-   *   are correct and assocations correctly connected
-   */
-  void SetAssociations(Particle& particle, const std::vector<int>& associations,
-                       const std::vector<double>& sense_x, 
-                       const std::vector<double>& sense_y);
-
-  /**
-   * initialized Returns whether particle filter is initialized yet or not.
-   */
+    /**
+     * initialized Returns whether particle filter is initialized yet or not.
+     */
   const bool initialized() const {
     return is_initialized;
   }
